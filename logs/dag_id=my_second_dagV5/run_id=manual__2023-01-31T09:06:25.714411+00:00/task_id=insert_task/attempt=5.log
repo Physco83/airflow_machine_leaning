@@ -1,0 +1,46 @@
+[2023-01-31T09:11:08.189+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV5.insert_task manual__2023-01-31T09:06:25.714411+00:00 [queued]>
+[2023-01-31T09:11:08.202+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV5.insert_task manual__2023-01-31T09:06:25.714411+00:00 [queued]>
+[2023-01-31T09:11:08.203+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T09:11:08.203+0000] {taskinstance.py:1280} INFO - Starting attempt 5 of 5
+[2023-01-31T09:11:08.203+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T09:11:08.219+0000] {taskinstance.py:1300} INFO - Executing <Task(PostgresOperator): insert_task> on 2023-01-31 09:06:25.714411+00:00
+[2023-01-31T09:11:08.223+0000] {standard_task_runner.py:55} INFO - Started process 1363 to run task
+[2023-01-31T09:11:08.226+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dagV5', 'insert_task', 'manual__2023-01-31T09:06:25.714411+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmp7oez4yn6']
+[2023-01-31T09:11:08.226+0000] {standard_task_runner.py:83} INFO - Job 20: Subtask insert_task
+[2023-01-31T09:11:08.331+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dagV5.insert_task manual__2023-01-31T09:06:25.714411+00:00 [running]> on host ab5131891604
+[2023-01-31T09:11:08.414+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dagV5
+AIRFLOW_CTX_TASK_ID=insert_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-31T09:06:25.714411+00:00
+AIRFLOW_CTX_TRY_NUMBER=5
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-31T09:06:25.714411+00:00
+[2023-01-31T09:11:08.414+0000] {sql.py:254} INFO - Executing: 
+            insert into dag_runs(dt, dag_id) VALUES (%(ds)s, "apple")
+        
+[2023-01-31T09:11:08.424+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-31T09:11:08.607+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-31T09:11:08.610+0000] {sql.py:375} INFO - Running statement: 
+            insert into dag_runs(dt, dag_id) VALUES (%(ds)s, "apple")
+        , parameters: {'ds': datetime.datetime(2022, 2, 16, 0, 0)}
+[2023-01-31T09:11:08.611+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 266, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 378, in _run_command
+    cur.execute(sql_statement, parameters)
+psycopg2.errors.UndefinedColumn: column "apple" does not exist
+LINE 2: ..., dag_id) VALUES ('2022-02-16T00:00:00'::timestamp, "apple")
+                                                               ^
+
+[2023-01-31T09:11:08.618+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_second_dagV5, task_id=insert_task, execution_date=20230131T090625, start_date=20230131T091108, end_date=20230131T091108
+[2023-01-31T09:11:08.711+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 20 for task insert_task (column "apple" does not exist
+LINE 2: ..., dag_id) VALUES ('2022-02-16T00:00:00'::timestamp, "apple")
+                                                               ^
+; 1363)
+[2023-01-31T09:11:08.726+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-01-31T09:11:08.749+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

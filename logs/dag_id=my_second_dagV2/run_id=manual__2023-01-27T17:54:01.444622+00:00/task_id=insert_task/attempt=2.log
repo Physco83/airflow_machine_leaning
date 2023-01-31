@@ -1,0 +1,44 @@
+[2023-01-27T17:55:13.755+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV2.insert_task manual__2023-01-27T17:54:01.444622+00:00 [queued]>
+[2023-01-27T17:55:13.773+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV2.insert_task manual__2023-01-27T17:54:01.444622+00:00 [queued]>
+[2023-01-27T17:55:13.773+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-27T17:55:13.773+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2023-01-27T17:55:13.773+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-27T17:55:13.799+0000] {taskinstance.py:1300} INFO - Executing <Task(PostgresOperator): insert_task> on 2023-01-27 17:54:01.444622+00:00
+[2023-01-27T17:55:13.805+0000] {standard_task_runner.py:55} INFO - Started process 2840 to run task
+[2023-01-27T17:55:13.810+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dagV2', 'insert_task', 'manual__2023-01-27T17:54:01.444622+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpees7iaqz']
+[2023-01-27T17:55:13.811+0000] {standard_task_runner.py:83} INFO - Job 11: Subtask insert_task
+[2023-01-27T17:55:13.897+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dagV2.insert_task manual__2023-01-27T17:54:01.444622+00:00 [running]> on host 9763ece73850
+[2023-01-27T17:55:13.993+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dagV2
+AIRFLOW_CTX_TASK_ID=insert_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-27T17:54:01.444622+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-27T17:54:01.444622+00:00
+[2023-01-27T17:55:13.994+0000] {sql.py:254} INFO - Executing: 
+            insert into dag_runs(dt, dag_id) VALUES ('2023-01-27', ' my_second_dagV2')
+        
+[2023-01-27T17:55:14.007+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-27T17:55:14.226+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-27T17:55:14.231+0000] {sql.py:375} INFO - Running statement: 
+            insert into dag_runs(dt, dag_id) VALUES ('2023-01-27', ' my_second_dagV2')
+        , parameters: None
+[2023-01-27T17:55:14.235+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 266, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "dag_runs_pkey"
+DETAIL:  Key (dt, dag_id)=(2023-01-27,  my_second_dagV2) already exists.
+
+[2023-01-27T17:55:14.249+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_second_dagV2, task_id=insert_task, execution_date=20230127T175401, start_date=20230127T175513, end_date=20230127T175514
+[2023-01-27T17:55:14.266+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 11 for task insert_task (duplicate key value violates unique constraint "dag_runs_pkey"
+DETAIL:  Key (dt, dag_id)=(2023-01-27,  my_second_dagV2) already exists.
+; 2840)
+[2023-01-27T17:55:14.311+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-01-27T17:55:14.341+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

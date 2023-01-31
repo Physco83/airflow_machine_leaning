@@ -1,0 +1,47 @@
+[2023-01-28T09:56:47.866+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV4.calculate_optimal_prices scheduled__2023-01-15T00:00:00+00:00 [queued]>
+[2023-01-28T09:56:47.910+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV4.calculate_optimal_prices scheduled__2023-01-15T00:00:00+00:00 [queued]>
+[2023-01-28T09:56:47.910+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-28T09:56:47.911+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-01-28T09:56:47.911+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-28T09:56:47.982+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): calculate_optimal_prices> on 2023-01-15 00:00:00+00:00
+[2023-01-28T09:56:47.990+0000] {standard_task_runner.py:55} INFO - Started process 10313 to run task
+[2023-01-28T09:56:47.997+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dagV4', 'calculate_optimal_prices', 'scheduled__2023-01-15T00:00:00+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmp6g7cn8mw']
+[2023-01-28T09:56:47.998+0000] {standard_task_runner.py:83} INFO - Job 30: Subtask calculate_optimal_prices
+[2023-01-28T09:56:48.098+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dagV4.calculate_optimal_prices scheduled__2023-01-15T00:00:00+00:00 [running]> on host 9763ece73850
+[2023-01-28T09:56:48.238+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dagV4
+AIRFLOW_CTX_TASK_ID=calculate_optimal_prices
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-15T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-15T00:00:00+00:00
+[2023-01-28T09:56:48.239+0000] {python.py:177} INFO - Done. Returned value was: 2022-02-11 00:00:00
+[2023-01-28T09:56:48.252+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2297, in xcom_push
+    session=session,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 240, in set
+    map_index=map_index,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 627, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/json.py", line 176, in encode
+    return super().encode(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/json.py", line 153, in default
+    CLASSNAME: o.__module__ + "." + o.__class__.__qualname__,
+AttributeError: 'datetime.datetime' object has no attribute '__module__'
+[2023-01-28T09:56:48.401+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_second_dagV4, task_id=calculate_optimal_prices, execution_date=20230115T000000, start_date=20230128T095647, end_date=20230128T095648
+[2023-01-28T09:56:48.475+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 30 for task calculate_optimal_prices ('datetime.datetime' object has no attribute '__module__'; 10313)
+[2023-01-28T09:56:48.490+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-01-28T09:56:48.515+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

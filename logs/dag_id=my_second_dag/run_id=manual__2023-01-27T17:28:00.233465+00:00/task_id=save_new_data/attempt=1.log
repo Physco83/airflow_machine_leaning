@@ -1,0 +1,54 @@
+[2023-01-27T17:28:01.179+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dag.save_new_data manual__2023-01-27T17:28:00.233465+00:00 [queued]>
+[2023-01-27T17:28:01.186+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dag.save_new_data manual__2023-01-27T17:28:00.233465+00:00 [queued]>
+[2023-01-27T17:28:01.186+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-27T17:28:01.186+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-01-27T17:28:01.187+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-27T17:28:01.198+0000] {taskinstance.py:1300} INFO - Executing <Task(PostgresOperator): save_new_data> on 2023-01-27 17:28:00.233465+00:00
+[2023-01-27T17:28:01.203+0000] {standard_task_runner.py:55} INFO - Started process 911 to run task
+[2023-01-27T17:28:01.206+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dag', 'save_new_data', 'manual__2023-01-27T17:28:00.233465+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpuqxcpnlh']
+[2023-01-27T17:28:01.207+0000] {standard_task_runner.py:83} INFO - Job 4: Subtask save_new_data
+[2023-01-27T17:28:01.304+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dag.save_new_data manual__2023-01-27T17:28:00.233465+00:00 [running]> on host 9763ece73850
+[2023-01-27T17:28:01.414+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dag
+AIRFLOW_CTX_TASK_ID=save_new_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-27T17:28:00.233465+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-27T17:28:00.233465+00:00
+[2023-01-27T17:28:01.415+0000] {sql.py:254} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS dag_runs (
+                dt date, 
+                dag_id character variyng,
+                PRIMARY KEY (dt, dag_id)
+            
+          
+[2023-01-27T17:28:01.428+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-27T17:28:01.609+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-27T17:28:01.612+0000] {sql.py:375} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS dag_runs (
+                dt date, 
+                dag_id character variyng,
+                PRIMARY KEY (dt, dag_id)
+            
+          , parameters: None
+[2023-01-27T17:28:01.613+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 266, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.SyntaxError: syntax error at or near "variyng"
+LINE 4:                 dag_id character variyng,
+                                         ^
+
+[2023-01-27T17:28:01.620+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_second_dag, task_id=save_new_data, execution_date=20230127T172800, start_date=20230127T172801, end_date=20230127T172801
+[2023-01-27T17:28:01.630+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 4 for task save_new_data (syntax error at or near "variyng"
+LINE 4:                 dag_id character variyng,
+                                         ^
+; 911)
+[2023-01-27T17:28:01.661+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-01-27T17:28:01.677+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

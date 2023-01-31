@@ -1,0 +1,38 @@
+[2023-01-31T11:33:35.705+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV6.save_new_data manual__2023-01-31T11:33:33.634332+00:00 [queued]>
+[2023-01-31T11:33:35.725+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV6.save_new_data manual__2023-01-31T11:33:33.634332+00:00 [queued]>
+[2023-01-31T11:33:35.725+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T11:33:35.726+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-01-31T11:33:35.726+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T11:33:35.750+0000] {taskinstance.py:1300} INFO - Executing <Task(PostgresOperator): save_new_data> on 2023-01-31 11:33:33.634332+00:00
+[2023-01-31T11:33:35.755+0000] {standard_task_runner.py:55} INFO - Started process 225 to run task
+[2023-01-31T11:33:35.765+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dagV6', 'save_new_data', 'manual__2023-01-31T11:33:33.634332+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpf26ilcys']
+[2023-01-31T11:33:35.766+0000] {standard_task_runner.py:83} INFO - Job 30: Subtask save_new_data
+[2023-01-31T11:33:35.855+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dagV6.save_new_data manual__2023-01-31T11:33:33.634332+00:00 [running]> on host 7630aa9dbd23
+[2023-01-31T11:33:35.974+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dagV6
+AIRFLOW_CTX_TASK_ID=save_new_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-31T11:33:33.634332+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-31T11:33:33.634332+00:00
+[2023-01-31T11:33:35.975+0000] {sql.py:254} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS tutor (
+                tutor_id serial primary key, 
+                name VARCHAR(20),
+                speciality VARCHAR(20)
+            )
+          
+[2023-01-31T11:33:35.994+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-31T11:33:36.435+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-31T11:33:36.440+0000] {sql.py:375} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS tutor (
+                tutor_id serial primary key, 
+                name VARCHAR(20),
+                speciality VARCHAR(20)
+            )
+          , parameters: None
+[2023-01-31T11:33:36.718+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_second_dagV6, task_id=save_new_data, execution_date=20230131T113333, start_date=20230131T113335, end_date=20230131T113336
+[2023-01-31T11:33:36.786+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-01-31T11:33:36.821+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,46 @@
+[2023-01-29T07:38:39.320+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV5.calculate_optimal_prices scheduled__2023-01-22T00:00:00+00:00 [queued]>
+[2023-01-29T07:38:39.331+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV5.calculate_optimal_prices scheduled__2023-01-22T00:00:00+00:00 [queued]>
+[2023-01-29T07:38:39.331+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-29T07:38:39.331+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-01-29T07:38:39.331+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-29T07:38:39.409+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): calculate_optimal_prices> on 2023-01-22 00:00:00+00:00
+[2023-01-29T07:38:39.419+0000] {standard_task_runner.py:55} INFO - Started process 48102 to run task
+[2023-01-29T07:38:39.421+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dagV5', 'calculate_optimal_prices', 'scheduled__2023-01-22T00:00:00+00:00', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpxejax1um']
+[2023-01-29T07:38:39.422+0000] {standard_task_runner.py:83} INFO - Job 62: Subtask calculate_optimal_prices
+[2023-01-29T07:38:39.592+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dagV5.calculate_optimal_prices scheduled__2023-01-22T00:00:00+00:00 [running]> on host 9763ece73850
+[2023-01-29T07:38:39.719+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dagV5
+AIRFLOW_CTX_TASK_ID=calculate_optimal_prices
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-22T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-22T00:00:00+00:00
+[2023-01-29T07:38:39.720+0000] {python.py:177} INFO - Done. Returned value was: dag is dag not a dag22
+[2023-01-29T07:38:39.777+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_second_dagV5, task_id=calculate_optimal_prices, execution_date=20230122T000000, start_date=20230129T073839, end_date=20230129T073839
+[2023-01-29T07:38:39.845+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-01-29T07:38:39.888+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-01-31T09:00:41.966+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV5.calculate_optimal_prices scheduled__2023-01-22T00:00:00+00:00 [queued]>
+[2023-01-31T09:00:42.040+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV5.calculate_optimal_prices scheduled__2023-01-22T00:00:00+00:00 [queued]>
+[2023-01-31T09:00:42.040+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T09:00:42.040+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-01-31T09:00:42.040+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T09:00:42.136+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): calculate_optimal_prices> on 2023-01-22 00:00:00+00:00
+[2023-01-31T09:00:42.145+0000] {standard_task_runner.py:55} INFO - Started process 593 to run task
+[2023-01-31T09:00:42.155+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dagV5', 'calculate_optimal_prices', 'scheduled__2023-01-22T00:00:00+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpzlagx6a1']
+[2023-01-31T09:00:42.156+0000] {standard_task_runner.py:83} INFO - Job 10: Subtask calculate_optimal_prices
+[2023-01-31T09:00:42.432+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dagV5.calculate_optimal_prices scheduled__2023-01-22T00:00:00+00:00 [running]> on host ab5131891604
+[2023-01-31T09:00:42.796+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dagV5
+AIRFLOW_CTX_TASK_ID=calculate_optimal_prices
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-22T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-22T00:00:00+00:00
+[2023-01-31T09:00:42.797+0000] {python.py:177} INFO - Done. Returned value was: dag is dag not a dag22
+[2023-01-31T09:00:42.924+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_second_dagV5, task_id=calculate_optimal_prices, execution_date=20230122T000000, start_date=20230131T090042, end_date=20230131T090042
+[2023-01-31T09:00:43.014+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-01-31T09:00:43.161+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

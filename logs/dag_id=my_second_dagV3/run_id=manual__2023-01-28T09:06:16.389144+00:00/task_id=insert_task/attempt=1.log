@@ -1,0 +1,46 @@
+[2023-01-28T09:06:20.053+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV3.insert_task manual__2023-01-28T09:06:16.389144+00:00 [queued]>
+[2023-01-28T09:06:20.064+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_second_dagV3.insert_task manual__2023-01-28T09:06:16.389144+00:00 [queued]>
+[2023-01-28T09:06:20.064+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-28T09:06:20.064+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-01-28T09:06:20.064+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-28T09:06:20.078+0000] {taskinstance.py:1300} INFO - Executing <Task(PostgresOperator): insert_task> on 2023-01-28 09:06:16.389144+00:00
+[2023-01-28T09:06:20.083+0000] {standard_task_runner.py:55} INFO - Started process 6758 to run task
+[2023-01-28T09:06:20.086+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_second_dagV3', 'insert_task', 'manual__2023-01-28T09:06:16.389144+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpgp3ys6bt']
+[2023-01-28T09:06:20.087+0000] {standard_task_runner.py:83} INFO - Job 28: Subtask insert_task
+[2023-01-28T09:06:20.177+0000] {task_command.py:388} INFO - Running <TaskInstance: my_second_dagV3.insert_task manual__2023-01-28T09:06:16.389144+00:00 [running]> on host 9763ece73850
+[2023-01-28T09:06:20.259+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_second_dagV3
+AIRFLOW_CTX_TASK_ID=insert_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-28T09:06:16.389144+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-28T09:06:16.389144+00:00
+[2023-01-28T09:06:20.259+0000] {sql.py:254} INFO - Executing: 
+            insert into dag_runs(dt, dag_id) VALUES ('%(ds)s', '%(dag_id)s')
+        
+[2023-01-28T09:06:20.268+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-28T09:06:20.449+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-01-28T09:06:20.453+0000] {sql.py:375} INFO - Running statement: 
+            insert into dag_runs(dt, dag_id) VALUES ('%(ds)s', '%(dag_id)s')
+        , parameters: {'ds': datetime.datetime(2022, 2, 10, 0, 0), 'dag_id': 'dag is dag not a dag'}
+[2023-01-28T09:06:20.454+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 266, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 378, in _run_command
+    cur.execute(sql_statement, parameters)
+psycopg2.errors.SyntaxError: syntax error at or near "2022"
+LINE 2: ...       insert into dag_runs(dt, dag_id) VALUES (''2022-02-10...
+                                                             ^
+
+[2023-01-28T09:06:20.461+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_second_dagV3, task_id=insert_task, execution_date=20230128T090616, start_date=20230128T090620, end_date=20230128T090620
+[2023-01-28T09:06:20.471+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 28 for task insert_task (syntax error at or near "2022"
+LINE 2: ...       insert into dag_runs(dt, dag_id) VALUES (''2022-02-10...
+                                                             ^
+; 6758)
+[2023-01-28T09:06:20.503+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-01-28T09:06:20.538+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
