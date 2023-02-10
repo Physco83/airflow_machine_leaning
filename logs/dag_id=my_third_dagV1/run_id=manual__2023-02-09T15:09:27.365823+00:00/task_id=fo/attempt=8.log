@@ -1,0 +1,78 @@
+[2023-02-09T15:22:55.194+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:09:27.365823+00:00 [queued]>
+[2023-02-09T15:22:55.202+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:09:27.365823+00:00 [queued]>
+[2023-02-09T15:22:55.202+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T15:22:55.202+0000] {taskinstance.py:1280} INFO - Starting attempt 8 of 8
+[2023-02-09T15:22:55.202+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T15:22:55.223+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-02-09 15:09:27.365823+00:00
+[2023-02-09T15:22:55.226+0000] {standard_task_runner.py:55} INFO - Started process 6515 to run task
+[2023-02-09T15:22:55.229+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV1', 'fo', 'manual__2023-02-09T15:09:27.365823+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmpysn0tpmt']
+[2023-02-09T15:22:55.230+0000] {standard_task_runner.py:83} INFO - Job 29: Subtask fo
+[2023-02-09T15:22:55.352+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:09:27.365823+00:00 [running]> on host 47e55e08a495
+[2023-02-09T15:22:55.423+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV1
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-09T15:09:27.365823+00:00
+AIRFLOW_CTX_TRY_NUMBER=8
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-09T15:09:27.365823+00:00
+[2023-02-09T15:22:56.897+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidDatetimeFormat: invalid input syntax for type date: "{}"
+LINE 2: ... select * from price_history ph where ph."date" >='{}' and p...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag3.py", line 60, in foo1
+    ''', dbConnection);
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 634, in read_sql
+    chunksize=chunksize,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1579, in read_query
+    result = self.execute(*args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1424, in execute
+    return self.connectable.execution_options().execute(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1370, in execute
+    future=False,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1676, in _exec_driver_sql
+    distilled_parameters,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidDatetimeFormat) invalid input syntax for type date: "{}"
+LINE 2: ... select * from price_history ph where ph."date" >='{}' and p...
+                                                             ^
+
+[SQL: 
+             select * from price_history ph where ph."date" >='{}' and ph."date" <='{}' 
+         ]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+[2023-02-09T15:22:56.907+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_third_dagV1, task_id=fo, execution_date=20230209T150927, start_date=20230209T152255, end_date=20230209T152256
+[2023-02-09T15:22:56.944+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 29 for task fo ((psycopg2.errors.InvalidDatetimeFormat) invalid input syntax for type date: "{}"
+LINE 2: ... select * from price_history ph where ph."date" >='{}' and p...
+                                                             ^
+
+[SQL: 
+             select * from price_history ph where ph."date" >='{}' and ph."date" <='{}' 
+         ]
+(Background on this error at: https://sqlalche.me/e/14/9h9h); 6515)
+[2023-02-09T15:22:56.985+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-09T15:22:57.002+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,34 @@
+[2023-02-10T09:15:08.564+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dag.save_new_data scheduled__2023-01-29T00:00:00+00:00 [queued]>
+[2023-02-10T09:15:08.616+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dag.save_new_data scheduled__2023-01-29T00:00:00+00:00 [queued]>
+[2023-02-10T09:15:08.616+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-10T09:15:08.616+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-02-10T09:15:08.616+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-10T09:15:08.635+0000] {taskinstance.py:1300} INFO - Executing <Task(PostgresOperator): save_new_data> on 2023-01-29 00:00:00+00:00
+[2023-02-10T09:15:08.639+0000] {standard_task_runner.py:55} INFO - Started process 28219 to run task
+[2023-02-10T09:15:08.642+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_first_dag', 'save_new_data', 'scheduled__2023-01-29T00:00:00+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmphyb0en45']
+[2023-02-10T09:15:08.643+0000] {standard_task_runner.py:83} INFO - Job 53: Subtask save_new_data
+[2023-02-10T09:15:08.707+0000] {task_command.py:388} INFO - Running <TaskInstance: my_first_dag.save_new_data scheduled__2023-01-29T00:00:00+00:00 [running]> on host 47e55e08a495
+[2023-02-10T09:15:08.790+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_first_dag
+AIRFLOW_CTX_TASK_ID=save_new_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-29T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-29T00:00:00+00:00
+[2023-02-10T09:15:08.791+0000] {sql.py:254} INFO - Executing: 
+            
+          
+[2023-02-10T09:15:08.798+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-02-10T09:15:09.005+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 266, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 340, in run
+    raise ValueError("List of SQL statements is empty")
+ValueError: List of SQL statements is empty
+[2023-02-10T09:15:09.020+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_first_dag, task_id=save_new_data, execution_date=20230129T000000, start_date=20230210T091508, end_date=20230210T091509
+[2023-02-10T09:15:09.033+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 53 for task save_new_data (List of SQL statements is empty; 28219)
+[2023-02-10T09:15:09.061+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-10T09:15:09.109+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

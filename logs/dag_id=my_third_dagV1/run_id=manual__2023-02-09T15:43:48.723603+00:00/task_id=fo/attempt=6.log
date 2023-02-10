@@ -1,0 +1,65 @@
+[2023-02-09T15:53:02.889+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:43:48.723603+00:00 [queued]>
+[2023-02-09T15:53:02.897+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:43:48.723603+00:00 [queued]>
+[2023-02-09T15:53:02.897+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T15:53:02.898+0000] {taskinstance.py:1280} INFO - Starting attempt 6 of 6
+[2023-02-09T15:53:02.898+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T15:53:02.909+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-02-09 15:43:48.723603+00:00
+[2023-02-09T15:53:02.913+0000] {standard_task_runner.py:55} INFO - Started process 8331 to run task
+[2023-02-09T15:53:02.916+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV1', 'fo', 'manual__2023-02-09T15:43:48.723603+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmpjra2tewy']
+[2023-02-09T15:53:02.917+0000] {standard_task_runner.py:83} INFO - Job 39: Subtask fo
+[2023-02-09T15:53:02.988+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:43:48.723603+00:00 [running]> on host 47e55e08a495
+[2023-02-09T15:53:03.083+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV1
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-09T15:43:48.723603+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-09T15:43:48.723603+00:00
+[2023-02-09T15:53:06.485+0000] {warnings.py:110} WARNING - /opt/***/dags/dag3.py:102: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_binary['product_name'] = pd.Series([product_name]*df_binary.shape[0])
+
+[2023-02-09T15:53:06.488+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return func(*args, **kwargs)
+
+[2023-02-09T15:53:07.097+0000] {logging_mixin.py:137} INFO - 0.10140537322855869
+[2023-02-09T15:53:07.097+0000] {logging_mixin.py:137} INFO - y = 103053.879*x-1963587.1
+[2023-02-09T15:53:07.280+0000] {warnings.py:110} WARNING - /opt/***/dags/dag3.py:102: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_binary['product_name'] = pd.Series([product_name]*df_binary.shape[0])
+
+[2023-02-09T15:53:07.281+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return func(*args, **kwargs)
+
+[2023-02-09T15:53:07.282+0000] {logging_mixin.py:137} INFO - 0.009475179328822136
+[2023-02-09T15:53:07.282+0000] {logging_mixin.py:137} INFO - y = -176.983*x+4371.3
+[2023-02-09T15:53:07.335+0000] {logging_mixin.py:137} INFO - a = -176.9830 ± 325.0047, доверительный интервал α=5% [-839.8346 ; 485.8685]
+[2023-02-09T15:53:07.335+0000] {logging_mixin.py:137} INFO - b = 4371.2685 ± 6563.9852, доверительный интервал α=5% [-9016.0675 ; 17758.6046]
+[2023-02-09T15:53:08.021+0000] {legend.py:1218} WARNING - No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+[2023-02-09T15:53:08.023+0000] {logging_mixin.py:137} INFO - [-2.1840339659690287 -2.1840339659690287 -3.679445951406886
+ -3.679445951406886 -3.679445951406886 -3.679445951406886
+ -3.679445951406886 -3.679445951406886 -3.679445951406886
+ -3.679445951406886 7.933766103952881 7.933766103952881 7.933766103952881
+ 7.933766103952881 7.933766103952881 7.933766103952881 7.933766103952881
+ 7.933766103952881 7.933766103952881 -3.679445951406886 7.933766103952881
+ 7.933766103952881 4.353959227868664 7.933766103952881 7.933766103952881
+ 7.933766103952881 7.933766103952881 7.933766103952881 7.933766103952881
+ 7.933766103952881 4.353959227868664 7.933766103952881 7.933766103952881]
+[2023-02-09T15:53:08.032+0000] {python.py:177} INFO - Done. Returned value was: 2
+[2023-02-09T15:53:08.070+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_third_dagV1, task_id=fo, execution_date=20230209T154348, start_date=20230209T155302, end_date=20230209T155308
+[2023-02-09T15:53:08.136+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-02-09T15:53:08.150+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

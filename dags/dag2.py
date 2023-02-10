@@ -5,6 +5,8 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 import airflow.models.taskinstance as ti
 
+
+
 #ENV_ID = os.environ.get("SYSTEM_TESTS_ENV_ID")
 #DAG_ID = "postgres_operator_dag"
 
@@ -18,13 +20,17 @@ default_args = {
 
 def _calculate_optimal_prices(**kwargs):
     #ti = kwargs['ti']
+   
     return "dag is dag not a dag22"
 
 
 #dag_id = "dag is dag not a dag"
 ds = datetime(2022,2,16)
 # A DAG represents a workflow, a collection of tasks
-with DAG(dag_id="my_second_dagV6", start_date=datetime(2022, 1, 1), schedule_interval="@weekly", catchup=False) as dag:
+with DAG(dag_id="my_second_dagV6", 
+    start_date=datetime(2022, 1, 1), 
+    schedule_interval="@weekly", 
+    catchup=False) as dag:
 
      
     save_new_data = PostgresOperator( #postgresOperator??

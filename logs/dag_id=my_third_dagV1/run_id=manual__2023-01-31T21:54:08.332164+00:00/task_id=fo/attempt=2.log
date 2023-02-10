@@ -1,0 +1,36 @@
+[2023-01-31T21:59:15.520+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-01-31T21:54:08.332164+00:00 [queued]>
+[2023-01-31T21:59:15.535+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-01-31T21:54:08.332164+00:00 [queued]>
+[2023-01-31T21:59:15.535+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T21:59:15.535+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2023-01-31T21:59:15.535+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T21:59:15.553+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-01-31 21:54:08.332164+00:00
+[2023-01-31T21:59:15.558+0000] {standard_task_runner.py:55} INFO - Started process 663 to run task
+[2023-01-31T21:59:15.560+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV1', 'fo', 'manual__2023-01-31T21:54:08.332164+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmp8khec49f']
+[2023-01-31T21:59:15.561+0000] {standard_task_runner.py:83} INFO - Job 5: Subtask fo
+[2023-01-31T21:59:15.640+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV1.fo manual__2023-01-31T21:54:08.332164+00:00 [running]> on host 47e55e08a495
+[2023-01-31T21:59:15.740+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV1
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-31T21:54:08.332164+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-31T21:54:08.332164+00:00
+[2023-01-31T21:59:17.429+0000] {logging_mixin.py:137} INFO - Empty DataFrame
+Columns: []
+Index: []
+[2023-01-31T21:59:17.432+0000] {logging_mixin.py:137} INFO - Ошибка при работе с PostgreSQL name 'cursor' is not defined
+[2023-01-31T21:59:17.432+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag3.py", line 52, in foo1
+    cursor.close()
+NameError: name 'cursor' is not defined
+[2023-01-31T21:59:17.439+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_third_dagV1, task_id=fo, execution_date=20230131T215408, start_date=20230131T215915, end_date=20230131T215917
+[2023-01-31T21:59:17.449+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 5 for task fo (name 'cursor' is not defined; 663)
+[2023-01-31T21:59:17.474+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-01-31T21:59:17.490+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

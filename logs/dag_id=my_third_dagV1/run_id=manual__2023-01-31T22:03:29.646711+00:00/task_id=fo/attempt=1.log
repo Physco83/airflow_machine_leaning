@@ -1,0 +1,32 @@
+[2023-01-31T22:03:30.645+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-01-31T22:03:29.646711+00:00 [queued]>
+[2023-01-31T22:03:30.657+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-01-31T22:03:29.646711+00:00 [queued]>
+[2023-01-31T22:03:30.657+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T22:03:30.657+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-01-31T22:03:30.657+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-31T22:03:30.684+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-01-31 22:03:29.646711+00:00
+[2023-01-31T22:03:30.689+0000] {standard_task_runner.py:55} INFO - Started process 979 to run task
+[2023-01-31T22:03:30.695+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV1', 'fo', 'manual__2023-01-31T22:03:29.646711+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmphlole9xu']
+[2023-01-31T22:03:30.695+0000] {standard_task_runner.py:83} INFO - Job 7: Subtask fo
+[2023-01-31T22:03:30.760+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV1.fo manual__2023-01-31T22:03:29.646711+00:00 [running]> on host 47e55e08a495
+[2023-01-31T22:03:30.911+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV1
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-31T22:03:29.646711+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-31T22:03:29.646711+00:00
+[2023-02-01T10:08:22.587+0000] {logging_mixin.py:137} INFO - Empty DataFrame
+Columns: []
+Index: []
+[2023-02-01T10:08:22.591+0000] {logging_mixin.py:137} INFO - Ошибка при работе с PostgreSQL relation "category" does not exist
+LINE 1: SELECT * from category limit 5
+                      ^
+[2023-02-01T10:08:22.591+0000] {logging_mixin.py:137} INFO - Соединение с PostgreSQL закрыто
+[2023-02-01T10:08:22.591+0000] {python.py:177} INFO - Done. Returned value was: 2
+[2023-02-01T10:08:22.682+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_third_dagV1, task_id=fo, execution_date=20230131T220329, start_date=20230131T220330, end_date=20230201T100822
+[2023-02-01T10:08:23.021+0000] {taskinstance.py:1077} INFO - Dependencies not met for <TaskInstance: my_third_dagV1.fo manual__2023-01-31T22:03:29.646711+00:00 [success]>, dependency 'Task Instance State' FAILED: Task is in the 'success' state.
+[2023-02-01T10:08:23.040+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-02-01T10:08:23.057+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-02-01T10:08:23.058+0000] {local_task_job.py:147} INFO - Task is not able to be run

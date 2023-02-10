@@ -1,0 +1,32 @@
+[2023-02-09T15:19:11.041+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:09:27.365823+00:00 [queued]>
+[2023-02-09T15:19:11.055+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:09:27.365823+00:00 [queued]>
+[2023-02-09T15:19:11.055+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T15:19:11.055+0000] {taskinstance.py:1280} INFO - Starting attempt 4 of 4
+[2023-02-09T15:19:11.055+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T15:19:11.075+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-02-09 15:09:27.365823+00:00
+[2023-02-09T15:19:11.097+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV1', 'fo', 'manual__2023-02-09T15:09:27.365823+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmppc_8w5pd']
+[2023-02-09T15:19:11.097+0000] {standard_task_runner.py:83} INFO - Job 25: Subtask fo
+[2023-02-09T15:19:11.102+0000] {standard_task_runner.py:55} INFO - Started process 6285 to run task
+[2023-02-09T15:19:11.183+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV1.fo manual__2023-02-09T15:09:27.365823+00:00 [running]> on host 47e55e08a495
+[2023-02-09T15:19:11.364+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV1
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-09T15:09:27.365823+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-09T15:09:27.365823+00:00
+[2023-02-09T15:19:14.887+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag3.py", line 49, in foo1
+    from sqlalchemy import SQLAlchemy
+ImportError: cannot import name 'SQLAlchemy' from 'sqlalchemy' (/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/__init__.py)
+[2023-02-09T15:19:14.894+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_third_dagV1, task_id=fo, execution_date=20230209T150927, start_date=20230209T151911, end_date=20230209T151914
+[2023-02-09T15:19:14.907+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 25 for task fo (cannot import name 'SQLAlchemy' from 'sqlalchemy' (/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/__init__.py); 6285)
+[2023-02-09T15:19:14.929+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-09T15:19:14.968+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

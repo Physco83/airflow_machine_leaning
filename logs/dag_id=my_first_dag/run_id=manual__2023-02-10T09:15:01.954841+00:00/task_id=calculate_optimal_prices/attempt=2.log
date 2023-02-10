@@ -1,0 +1,32 @@
+[2023-02-10T09:23:18.813+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dag.calculate_optimal_prices manual__2023-02-10T09:15:01.954841+00:00 [queued]>
+[2023-02-10T09:23:18.823+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dag.calculate_optimal_prices manual__2023-02-10T09:15:01.954841+00:00 [queued]>
+[2023-02-10T09:23:18.823+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-10T09:23:18.823+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2023-02-10T09:23:18.823+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-10T09:23:18.836+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): calculate_optimal_prices> on 2023-02-10 09:15:01.954841+00:00
+[2023-02-10T09:23:18.840+0000] {standard_task_runner.py:55} INFO - Started process 28703 to run task
+[2023-02-10T09:23:18.843+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_first_dag', 'calculate_optimal_prices', 'manual__2023-02-10T09:15:01.954841+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmp_3kkyd3w']
+[2023-02-10T09:23:18.843+0000] {standard_task_runner.py:83} INFO - Job 56: Subtask calculate_optimal_prices
+[2023-02-10T09:23:18.920+0000] {task_command.py:388} INFO - Running <TaskInstance: my_first_dag.calculate_optimal_prices manual__2023-02-10T09:15:01.954841+00:00 [running]> on host 47e55e08a495
+[2023-02-10T09:23:19.028+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_first_dag
+AIRFLOW_CTX_TASK_ID=calculate_optimal_prices
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-10T09:15:01.954841+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-10T09:15:01.954841+00:00
+[2023-02-10T09:23:21.988+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag1.py", line 162, in _calculate_optimal_prices
+    date_finish =   datetime.datetime.today() -  timedelta(weeks=week_difference)
+NameError: name 'week_difference' is not defined
+[2023-02-10T09:23:21.995+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_first_dag, task_id=calculate_optimal_prices, execution_date=20230210T091501, start_date=20230210T092318, end_date=20230210T092321
+[2023-02-10T09:23:22.033+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 56 for task calculate_optimal_prices (name 'week_difference' is not defined; 28703)
+[2023-02-10T09:23:22.086+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-10T09:23:22.112+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
