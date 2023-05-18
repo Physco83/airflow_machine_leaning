@@ -1,0 +1,30 @@
+[2023-05-15T09:45:14.496+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dagV2.calculate_save_optimal_prices scheduled__2023-05-07T00:00:00+00:00 [queued]>
+[2023-05-15T09:45:14.506+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dagV2.calculate_save_optimal_prices scheduled__2023-05-07T00:00:00+00:00 [queued]>
+[2023-05-15T09:45:14.507+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-15T09:45:14.507+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-05-15T09:45:14.507+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-15T09:45:14.686+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): calculate_save_optimal_prices> on 2023-05-07 00:00:00+00:00
+[2023-05-15T09:45:14.693+0000] {standard_task_runner.py:55} INFO - Started process 100 to run task
+[2023-05-15T09:45:14.697+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_first_dagV2', 'calculate_save_optimal_prices', 'scheduled__2023-05-07T00:00:00+00:00', '--job-id', '130', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmpppsazq_9']
+[2023-05-15T09:45:14.698+0000] {standard_task_runner.py:83} INFO - Job 130: Subtask calculate_save_optimal_prices
+[2023-05-15T09:45:14.928+0000] {task_command.py:388} INFO - Running <TaskInstance: my_first_dagV2.calculate_save_optimal_prices scheduled__2023-05-07T00:00:00+00:00 [running]> on host 725972ab8e3a
+[2023-05-15T09:45:15.443+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_first_dagV2
+AIRFLOW_CTX_TASK_ID=calculate_save_optimal_prices
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-07T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-07T00:00:00+00:00
+[2023-05-15T09:45:38.956+0000] {font_manager.py:1443} INFO - generated new fontManager
+[2023-05-15T09:46:19.258+0000] {logging_mixin.py:137} INFO - a = -89663.9218 ± 120913.6204, доверительный интервал α=5% [-335664.5322 ; 156336.6886]
+[2023-05-15T09:46:19.352+0000] {logging_mixin.py:137} INFO - b = 2395162.2635 ± 2548859.0136, доверительный интервал α=5% [-2790530.3908 ; 7580854.9178]
+[2023-05-15T09:46:19.534+0000] {logging_mixin.py:137} INFO - a = -31071.3173 ± 30237.3943, доверительный интервал α=5% [-92589.7586 ; 30447.1240]
+[2023-05-15T09:46:19.534+0000] {logging_mixin.py:137} INFO - b = 1213685.3675 ± 1090718.3546, доверительный интервал α=5% [-1005397.8101 ; 3432768.5451]
+[2023-05-15T09:46:19.652+0000] {logging_mixin.py:137} INFO - a = 80.1823 ± 410.9344, доверительный интервал α=5% [-755.8701 ; 916.2347]
+[2023-05-15T09:46:19.652+0000] {logging_mixin.py:137} INFO - b = -699.7446 ± 8314.6996, доверительный интервал α=5% [-17616.1281 ; 16216.6389]
+[2023-05-15T09:46:21.115+0000] {python.py:177} INFO - Done. Returned value was: 2
+[2023-05-15T09:46:21.157+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_first_dagV2, task_id=calculate_save_optimal_prices, execution_date=20230507T000000, start_date=20230515T094514, end_date=20230515T094621
+[2023-05-15T09:46:21.243+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-05-15T09:46:21.261+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check

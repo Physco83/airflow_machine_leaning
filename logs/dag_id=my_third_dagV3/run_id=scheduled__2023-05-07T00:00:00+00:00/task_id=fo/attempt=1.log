@@ -1,0 +1,104 @@
+[2023-05-16T09:51:17.228+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV3.fo scheduled__2023-05-07T00:00:00+00:00 [queued]>
+[2023-05-16T09:51:17.239+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV3.fo scheduled__2023-05-07T00:00:00+00:00 [queued]>
+[2023-05-16T09:51:17.240+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-16T09:51:17.240+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-05-16T09:51:17.240+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-16T09:51:17.294+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-05-07 00:00:00+00:00
+[2023-05-16T09:51:17.304+0000] {standard_task_runner.py:55} INFO - Started process 594 to run task
+[2023-05-16T09:51:17.310+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV3', 'fo', 'scheduled__2023-05-07T00:00:00+00:00', '--job-id', '141', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmpjfqrkxr3']
+[2023-05-16T09:51:17.310+0000] {standard_task_runner.py:83} INFO - Job 141: Subtask fo
+[2023-05-16T09:51:17.389+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV3.fo scheduled__2023-05-07T00:00:00+00:00 [running]> on host d1c47018cb38
+[2023-05-16T09:51:17.544+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV3
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-07T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-07T00:00:00+00:00
+[2023-05-16T09:51:22.599+0000] {font_manager.py:1443} INFO - generated new fontManager
+[2023-05-16T09:52:19.067+0000] {logging_mixin.py:137} INFO - Hello
+[2023-05-16T09:52:19.338+0000] {logging_mixin.py:137} INFO - <pyspark.sql.session.SparkSession object at 0x7fcf26532910>
+[2023-05-16T09:52:19.338+0000] {logging_mixin.py:137} INFO - Bye
+[2023-05-16T09:52:24.024+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag3.py", line 78, in foo1
+    .option("driver", "org.postgresql.Driver") \
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/sql/readwriter.py", line 184, in load
+    return self._df(self._jreader.load())
+  File "/home/airflow/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/sql/utils.py", line 190, in deco
+    return f(*a, **kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling o34.load.
+: java.lang.ClassNotFoundException: org.postgresql.Driver
+	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:476)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at org.apache.spark.sql.execution.datasources.jdbc.DriverRegistry$.register(DriverRegistry.scala:46)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.$anonfun$driverClass$1(JDBCOptions.scala:101)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.$anonfun$driverClass$1$adapted(JDBCOptions.scala:101)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.<init>(JDBCOptions.scala:101)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.<init>(JDBCOptions.scala:39)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:34)
+	at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:350)
+	at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:228)
+	at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:210)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:210)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:171)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+[2023-05-16T09:52:24.102+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_third_dagV3, task_id=fo, execution_date=20230507T000000, start_date=20230516T095117, end_date=20230516T095224
+[2023-05-16T09:52:24.232+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 141 for task fo (An error occurred while calling o34.load.
+: java.lang.ClassNotFoundException: org.postgresql.Driver
+	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:476)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at org.apache.spark.sql.execution.datasources.jdbc.DriverRegistry$.register(DriverRegistry.scala:46)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.$anonfun$driverClass$1(JDBCOptions.scala:101)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.$anonfun$driverClass$1$adapted(JDBCOptions.scala:101)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.<init>(JDBCOptions.scala:101)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.<init>(JDBCOptions.scala:39)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:34)
+	at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:350)
+	at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:228)
+	at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:210)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:210)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:171)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+; 594)
+[2023-05-16T09:52:24.282+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-05-16T09:52:24.313+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

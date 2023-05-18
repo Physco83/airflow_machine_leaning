@@ -1,0 +1,43 @@
+[2023-05-15T10:44:22.739+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV2.fo manual__2023-05-15T10:44:21.070293+00:00 [queued]>
+[2023-05-15T10:44:22.759+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV2.fo manual__2023-05-15T10:44:21.070293+00:00 [queued]>
+[2023-05-15T10:44:22.760+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-15T10:44:22.760+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-05-15T10:44:22.760+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-15T10:44:22.798+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-05-15 10:44:21.070293+00:00
+[2023-05-15T10:44:22.804+0000] {standard_task_runner.py:55} INFO - Started process 4139 to run task
+[2023-05-15T10:44:22.807+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV2', 'fo', 'manual__2023-05-15T10:44:21.070293+00:00', '--job-id', '135', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmp0qb0tn59']
+[2023-05-15T10:44:22.808+0000] {standard_task_runner.py:83} INFO - Job 135: Subtask fo
+[2023-05-15T10:44:22.883+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV2.fo manual__2023-05-15T10:44:21.070293+00:00 [running]> on host 725972ab8e3a
+[2023-05-15T10:44:23.005+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV2
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-15T10:44:21.070293+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-15T10:44:21.070293+00:00
+[2023-05-15T10:45:03.760+0000] {logging_mixin.py:137} INFO - <pyspark.sql.session.SparkSession object at 0x7fe031a28610>
+[2023-05-15T10:45:23.625+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag3.py", line 73, in foo1
+    '''.format(date_start, date_finish), dbConnection))
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/sql/session.py", line 892, in createDataFrame
+    data, schema, samplingRatio, verifySchema
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/sql/pandas/conversion.py", line 436, in createDataFrame
+    converted_data = self._convert_from_pandas(data, schema, timezone)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/sql/pandas/conversion.py", line 500, in _convert_from_pandas
+    np_records = pdf.to_records(index=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 2289, in to_records
+    return np.rec.fromarrays(arrays, dtype={"names": names, "formats": formats})
+  File "/home/airflow/.local/lib/python3.7/site-packages/numpy/core/records.py", line 653, in fromarrays
+    descr = sb.dtype(dtype)
+ValueError: name already used as a name or title
+[2023-05-15T10:45:23.700+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_third_dagV2, task_id=fo, execution_date=20230515T104421, start_date=20230515T104422, end_date=20230515T104523
+[2023-05-15T10:45:23.762+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 135 for task fo (name already used as a name or title; 4139)
+[2023-05-15T10:45:23.826+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-05-15T10:45:23.841+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

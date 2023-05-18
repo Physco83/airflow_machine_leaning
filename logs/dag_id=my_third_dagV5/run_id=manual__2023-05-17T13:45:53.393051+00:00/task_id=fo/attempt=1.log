@@ -1,0 +1,148 @@
+[2023-05-17T13:45:56.171+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV5.fo manual__2023-05-17T13:45:53.393051+00:00 [queued]>
+[2023-05-17T13:45:56.183+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV5.fo manual__2023-05-17T13:45:53.393051+00:00 [queued]>
+[2023-05-17T13:45:56.184+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-17T13:45:56.184+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-05-17T13:45:56.184+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-17T13:45:56.199+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-05-17 13:45:53.393051+00:00
+[2023-05-17T13:45:56.204+0000] {standard_task_runner.py:55} INFO - Started process 7051 to run task
+[2023-05-17T13:45:56.206+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV5', 'fo', 'manual__2023-05-17T13:45:53.393051+00:00', '--job-id', '168', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmp8cs9i9z2']
+[2023-05-17T13:45:56.207+0000] {standard_task_runner.py:83} INFO - Job 168: Subtask fo
+[2023-05-17T13:45:56.268+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV5.fo manual__2023-05-17T13:45:53.393051+00:00 [running]> on host 031cfb56e8fb
+[2023-05-17T13:45:56.386+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV5
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-17T13:45:53.393051+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-17T13:45:53.393051+00:00
+[2023-05-17T13:46:23.492+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pyspark/context.py:317: FutureWarning: Python 3.7 support is deprecated in Spark 3.4.
+  warnings.warn("Python 3.7 support is deprecated in Spark 3.4.", FutureWarning)
+
+[2023-05-17T13:46:23.634+0000] {logging_mixin.py:137} INFO - Hello
+[2023-05-17T13:46:23.634+0000] {logging_mixin.py:137} INFO - <pyspark.sql.session.SparkSession object at 0x7fd6b7114910>
+[2023-05-17T13:46:23.634+0000] {logging_mixin.py:137} INFO - Bye
+[2023-05-17T13:46:30.125+0000] {logging_mixin.py:137} INFO - 0
+[2023-05-17T13:46:36.568+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-17T13:46:38.164+0000] {logging_mixin.py:137} INFO - +------------+
+|sales_amount|
++------------+
+|     46703.0|
+|     15729.0|
+|    114829.0|
+|    206366.0|
+|    223536.0|
+|    132458.0|
+|    131133.0|
+|     69251.0|
+|     65122.0|
+|    180912.0|
+|    263693.0|
+|    175860.0|
+|    191258.0|
+|    138339.0|
+|    186970.0|
+|    172635.0|
+|    152645.0|
+|    227766.0|
+|    220016.0|
+|    289919.0|
++------------+
+only showing top 20 rows
+[2023-05-17T13:46:39.434+0000] {logging_mixin.py:137} WARNING - Traceback (most recent call last):
+[2023-05-17T13:46:39.434+0000] {logging_mixin.py:137} WARNING -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/serializers.py", line 459, in dumps
+    return cloudpickle.dumps(obj, pickle_protocol)
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 102, in dumps
+    cp.dump(obj)
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 632, in dump
+    return Pickler.dump(self, obj)
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 437, in dump
+    self.save(obj)
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 789, in save_tuple
+    save(element)
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 819, in save_function
+    *self._dynamic_function_reduce(obj), obj=obj
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 756, in _save_reduce_pickle5
+    dictitems=dictitems, obj=obj
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 638, in save_reduce
+    save(args)
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 789, in save_tuple
+    save(element)
+[2023-05-17T13:46:39.435+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+[2023-05-17T13:46:39.436+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 774, in save_tuple
+    save(element)
+[2023-05-17T13:46:39.436+0000] {logging_mixin.py:137} WARNING -   File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+[2023-05-17T13:46:39.436+0000] {logging_mixin.py:137} WARNING -   File "/home/***/.local/lib/python3.7/site-packages/dill/_dill.py", line 1146, in save_cell
+    f = obj.cell_contents
+[2023-05-17T13:46:39.436+0000] {logging_mixin.py:137} WARNING - ValueError: Cell is empty
+[2023-05-17T13:46:39.437+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/serializers.py", line 459, in dumps
+    return cloudpickle.dumps(obj, pickle_protocol)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 102, in dumps
+    cp.dump(obj)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 632, in dump
+    return Pickler.dump(self, obj)
+  File "/usr/local/lib/python3.7/pickle.py", line 437, in dump
+    self.save(obj)
+  File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+  File "/usr/local/lib/python3.7/pickle.py", line 789, in save_tuple
+    save(element)
+  File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 819, in save_function
+    *self._dynamic_function_reduce(obj), obj=obj
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/cloudpickle/cloudpickle_fast.py", line 756, in _save_reduce_pickle5
+    dictitems=dictitems, obj=obj
+  File "/usr/local/lib/python3.7/pickle.py", line 638, in save_reduce
+    save(args)
+  File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+  File "/usr/local/lib/python3.7/pickle.py", line 789, in save_tuple
+    save(element)
+  File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+  File "/usr/local/lib/python3.7/pickle.py", line 774, in save_tuple
+    save(element)
+  File "/usr/local/lib/python3.7/pickle.py", line 504, in save
+    f(self, obj) # Call unbound method with explicit self
+  File "/home/airflow/.local/lib/python3.7/site-packages/dill/_dill.py", line 1146, in save_cell
+    f = obj.cell_contents
+ValueError: Cell is empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag3.py", line 282, in foo1
+    optimization_reinforced_learning(df_binary, h_vec)
+  File "/opt/airflow/dags/dag3.py", line 183, in optimization_reinforced_learning
+    actual_demand = df_binary.rdd.map(lambda x: x['sales_amount']).collect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/rdd.py", line 1814, in collect
+    sock_info = self.ctx._jvm.PythonRDD.collectAndServe(self._jrdd.rdd())
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/rdd.py", line 5442, in _jrdd
+    self.ctx, self.func, self._prev_jrdd_deserializer, self._jrdd_deserializer, profiler
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/rdd.py", line 5241, in _wrap_function
+    pickled_command, broadcast_vars, env, includes = _prepare_for_python_RDD(sc, command)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/rdd.py", line 5224, in _prepare_for_python_RDD
+    pickled_command = ser.dumps(command)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyspark/serializers.py", line 469, in dumps
+    raise pickle.PicklingError(msg)
+_pickle.PicklingError: Could not serialize object: ValueError: Cell is empty
+[2023-05-17T13:46:39.446+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=my_third_dagV5, task_id=fo, execution_date=20230517T134553, start_date=20230517T134556, end_date=20230517T134639
+[2023-05-17T13:46:39.460+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 168 for task fo (Could not serialize object: ValueError: Cell is empty; 7051)
+[2023-05-17T13:46:39.500+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-05-17T13:46:39.515+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

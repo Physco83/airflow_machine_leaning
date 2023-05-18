@@ -1,0 +1,29 @@
+[2023-03-27T13:35:05.856+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dagV2.calculate_save_optimal_prices scheduled__2023-03-19T00:00:00+00:00 [queued]>
+[2023-03-27T13:35:05.865+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_first_dagV2.calculate_save_optimal_prices scheduled__2023-03-19T00:00:00+00:00 [queued]>
+[2023-03-27T13:35:05.865+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-27T13:35:05.865+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-03-27T13:35:05.865+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-27T13:35:05.880+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): calculate_save_optimal_prices> on 2023-03-19 00:00:00+00:00
+[2023-03-27T13:35:05.884+0000] {standard_task_runner.py:55} INFO - Started process 69 to run task
+[2023-03-27T13:35:05.887+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_first_dagV2', 'calculate_save_optimal_prices', 'scheduled__2023-03-19T00:00:00+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmpcwcn9exu']
+[2023-03-27T13:35:05.887+0000] {standard_task_runner.py:83} INFO - Job 77: Subtask calculate_save_optimal_prices
+[2023-03-27T13:35:05.966+0000] {task_command.py:388} INFO - Running <TaskInstance: my_first_dagV2.calculate_save_optimal_prices scheduled__2023-03-19T00:00:00+00:00 [running]> on host 47e55e08a495
+[2023-03-27T13:35:06.107+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_first_dagV2
+AIRFLOW_CTX_TASK_ID=calculate_save_optimal_prices
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-19T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-03-19T00:00:00+00:00
+[2023-03-27T13:35:57.016+0000] {logging_mixin.py:137} INFO - a = -52979.1004 ± 107740.5056, доверительный интервал α=5% [-272178.8072 ; 166220.6064]
+[2023-03-27T13:35:57.048+0000] {logging_mixin.py:137} INFO - b = 1567236.3186 ± 2255524.9132, доверительный интервал α=5% [-3021663.6211 ; 6156136.2584]
+[2023-03-27T13:35:57.177+0000] {logging_mixin.py:137} INFO - a = 1034.6613 ± 6822.8612, доверительный интервал α=5% [-12846.5543 ; 14915.8769]
+[2023-03-27T13:35:57.178+0000] {logging_mixin.py:137} INFO - b = -17453.4463 ± 247175.0309, доверительный интервал α=5% [-520334.8278 ; 485427.9352]
+[2023-03-27T13:35:57.287+0000] {logging_mixin.py:137} INFO - a = 27151.4532 ± 24519.2482, доверительный интервал α=5% [-22733.3324 ; 77036.2389]
+[2023-03-27T13:35:57.287+0000] {logging_mixin.py:137} INFO - b = -773340.9297 ± 776120.5870, доверительный интервал α=5% [-2352370.1366 ; 805688.2772]
+[2023-03-27T13:35:57.706+0000] {python.py:177} INFO - Done. Returned value was: 2
+[2023-03-27T13:35:57.736+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_first_dagV2, task_id=calculate_save_optimal_prices, execution_date=20230319T000000, start_date=20230327T133505, end_date=20230327T133557
+[2023-03-27T13:35:57.808+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-27T13:35:57.825+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check

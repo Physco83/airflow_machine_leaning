@@ -1,0 +1,47 @@
+[2023-05-17T15:09:47.506+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV5.fo manual__2023-05-17T15:05:45.880855+00:00 [queued]>
+[2023-05-17T15:09:47.514+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV5.fo manual__2023-05-17T15:05:45.880855+00:00 [queued]>
+[2023-05-17T15:09:47.515+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-17T15:09:47.515+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2023-05-17T15:09:47.515+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-17T15:09:47.535+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-05-17 15:05:45.880855+00:00
+[2023-05-17T15:09:47.540+0000] {standard_task_runner.py:55} INFO - Started process 15085 to run task
+[2023-05-17T15:09:47.543+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV5', 'fo', 'manual__2023-05-17T15:05:45.880855+00:00', '--job-id', '176', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmpo4gbbhkd']
+[2023-05-17T15:09:47.543+0000] {standard_task_runner.py:83} INFO - Job 176: Subtask fo
+[2023-05-17T15:09:47.627+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV5.fo manual__2023-05-17T15:05:45.880855+00:00 [running]> on host 031cfb56e8fb
+[2023-05-17T15:09:47.711+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV5
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-17T15:05:45.880855+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-17T15:05:45.880855+00:00
+[2023-05-17T15:10:01.114+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pyspark/context.py:317: FutureWarning: Python 3.7 support is deprecated in Spark 3.4.
+  warnings.warn("Python 3.7 support is deprecated in Spark 3.4.", FutureWarning)
+
+[2023-05-17T15:10:01.244+0000] {logging_mixin.py:137} INFO - Hello
+[2023-05-17T15:10:01.274+0000] {logging_mixin.py:137} INFO - [('spark.app.startTime', '1684336199757'), ('spark.app.initial.jar.urls', 'spark://031cfb56e8fb:36785/jars/postgresql-42.6.0.jar'), ('spark.executor.id', 'driver'), ('spark.app.name', 'Python Spark SQL basic example'), ('spark.repl.local.jars', 'file:///java/postgresql-42.6.0.jar'), ('spark.app.submitTime', '1684336199527'), ('spark.app.id', 'local-1684336200649'), ('spark.driver.extraJavaOptions', '-Djava.net.preferIPv6Addresses=false -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false'), ('spark.driver.port', '36785'), ('spark.rdd.compress', 'True'), ('spark.serializer.objectStreamReset', '100'), ('spark.jars', '/java/postgresql-42.6.0.jar'), ('spark.master', 'local[*]'), ('spark.submit.pyFiles', ''), ('spark.submit.deployMode', 'client'), ('spark.driver.host', '031cfb56e8fb'), ('spark.ui.showConsoleProgress', 'true'), ('spark.executor.extraJavaOptions', '-Djava.net.preferIPv6Addresses=false -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false')]
+[2023-05-17T15:10:01.275+0000] {logging_mixin.py:137} INFO - Bye
+[2023-05-17T15:10:07.126+0000] {logging_mixin.py:137} INFO - 0
+[2023-05-17T15:10:14.258+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-17T15:10:15.572+0000] {logging_mixin.py:137} INFO - 1.3145395669998834
+[2023-05-17T15:10:15.577+0000] {logging_mixin.py:137} INFO - 1
+[2023-05-17T15:10:17.796+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-17T15:10:18.612+0000] {logging_mixin.py:137} INFO - 0.8158994790010183
+[2023-05-17T15:10:18.615+0000] {logging_mixin.py:137} INFO - 2
+[2023-05-17T15:10:20.840+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-17T15:10:21.752+0000] {logging_mixin.py:137} INFO - 0.911835691998931
+[2023-05-17T15:10:21.756+0000] {logging_mixin.py:137} INFO - 3
+[2023-05-17T15:10:24.153+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-17T15:10:25.236+0000] {logging_mixin.py:137} INFO - 1.0822785560012562
+[2023-05-17T15:10:25.240+0000] {logging_mixin.py:137} INFO - 32.85551857200153
+[2023-05-17T15:10:25.247+0000] {logging_mixin.py:137} INFO -    df_binary     h_vec  optimization        sum
+0   0.372187  7.131152      8.447612  15.950951
+1   0.173242  2.218943      3.036548   5.428733
+2   0.146144  2.224914      3.138580   5.509638
+3   0.087405  2.397387      3.481405   5.966196
+[2023-05-17T15:10:25.247+0000] {python.py:177} INFO - Done. Returned value was: 2
+[2023-05-17T15:10:25.327+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_third_dagV5, task_id=fo, execution_date=20230517T150545, start_date=20230517T150947, end_date=20230517T151025
+[2023-05-17T15:10:25.423+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-05-17T15:10:25.449+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

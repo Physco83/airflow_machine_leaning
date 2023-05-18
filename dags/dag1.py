@@ -23,6 +23,8 @@ def _get_new_data():
     return 2
 
 def _calculate_optimal_prices():
+    from timeit import default_timer as timer
+
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
@@ -159,7 +161,7 @@ def _calculate_optimal_prices():
     # Connect to PostgreSQL serve
     dbConnection    = engine.connect();
     # Read data from PostgreSQL database table and load into a DataFrame instance
-    week_difference = 43
+    week_difference = 57
     date_finish =   datetime.datetime.today() -  timedelta(weeks=week_difference)
     date_start = date_finish - timedelta(weeks=5)
     df_merge = pd.read_sql('''
@@ -172,18 +174,26 @@ def _calculate_optimal_prices():
     temp6.columns = ['product_name', 'sales_amount']
     
 
+    df_time = pd.DataFrame(columns=['df_binary', 'h_vec', 'optimization', 'sum'])
+    
     df_pph = pd.DataFrame()
     for index, row in temp6.iterrows():
         # print(index)
+        time1 = timer()
         df_binary = make_product_df(row['product_name'])
+        time2 = timer() - time1
         # print_graphic_and_show_metrics(df_binary)
         h_vec = calc_metric(df_binary)
+        time3 = timer()- time1
         history = np.array(simulation_din_price(df_binary))
+        time4 = timer()- time1
+        df_time.loc[index] = [time2,time3,time4, time2+time3+time4]
         df_pph = df_pph.append(pd.DataFrame([[datetime.datetime.today(), history[-1,0], row['product_name']]], columns=['date', 'price', 'product_id']))
         if (index == 2):
             break
 
-
+    print(df_time['sum'].sum())
+    print(df_time)
     df_pph.to_sql('price_prediction_history', dbConnection, if_exists='append', index=False)
 
     return 2

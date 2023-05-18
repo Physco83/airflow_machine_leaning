@@ -1,0 +1,44 @@
+[2023-05-18T14:02:08.098+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV5.fo manual__2023-05-18T14:02:02.420897+00:00 [queued]>
+[2023-05-18T14:02:08.223+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: my_third_dagV5.fo manual__2023-05-18T14:02:02.420897+00:00 [queued]>
+[2023-05-18T14:02:08.223+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-18T14:02:08.223+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-05-18T14:02:08.223+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-18T14:02:08.309+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): fo> on 2023-05-18 14:02:02.420897+00:00
+[2023-05-18T14:02:08.316+0000] {standard_task_runner.py:55} INFO - Started process 32632 to run task
+[2023-05-18T14:02:08.321+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'my_third_dagV5', 'fo', 'manual__2023-05-18T14:02:02.420897+00:00', '--job-id', '185', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmpr1vm03i9']
+[2023-05-18T14:02:08.321+0000] {standard_task_runner.py:83} INFO - Job 185: Subtask fo
+[2023-05-18T14:02:08.651+0000] {task_command.py:388} INFO - Running <TaskInstance: my_third_dagV5.fo manual__2023-05-18T14:02:02.420897+00:00 [running]> on host 031cfb56e8fb
+[2023-05-18T14:02:09.126+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=my_third_dagV5
+AIRFLOW_CTX_TASK_ID=fo
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-18T14:02:02.420897+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-18T14:02:02.420897+00:00
+[2023-05-18T14:02:42.035+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pyspark/context.py:317: FutureWarning: Python 3.7 support is deprecated in Spark 3.4.
+  warnings.warn("Python 3.7 support is deprecated in Spark 3.4.", FutureWarning)
+
+[2023-05-18T14:02:54.101+0000] {logging_mixin.py:137} INFO - 0
+[2023-05-18T14:03:02.225+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-18T14:03:03.999+0000] {logging_mixin.py:137} INFO - 1.7746745940021356
+[2023-05-18T14:03:04.024+0000] {logging_mixin.py:137} INFO - 1
+[2023-05-18T14:03:07.747+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-18T14:03:09.099+0000] {logging_mixin.py:137} INFO - 1.3522571990033612
+[2023-05-18T14:03:09.103+0000] {logging_mixin.py:137} INFO - 2
+[2023-05-18T14:03:11.196+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-18T14:03:12.297+0000] {logging_mixin.py:137} INFO - 1.101686221001728
+[2023-05-18T14:03:12.301+0000] {logging_mixin.py:137} INFO - 3
+[2023-05-18T14:03:14.715+0000] {logging_mixin.py:137} INFO - <class 'pyspark.sql.dataframe.DataFrame'>
+[2023-05-18T14:03:15.450+0000] {logging_mixin.py:137} INFO - 0.7340670529993076
+[2023-05-18T14:03:15.518+0000] {logging_mixin.py:137} INFO - 38.46406591199775
+[2023-05-18T14:03:15.710+0000] {logging_mixin.py:137} INFO -    df_binary     h_vec  optimization        sum
+0   0.286277  8.123528      9.900200  18.310005
+1   0.286456  3.722253      5.077059   9.085768
+2   0.092472  2.092472      3.196215   5.381159
+3   0.121607  2.414329      3.151198   5.687134
+[2023-05-18T14:03:15.711+0000] {python.py:177} INFO - Done. Returned value was: 2
+[2023-05-18T14:03:15.773+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=my_third_dagV5, task_id=fo, execution_date=20230518T140202, start_date=20230518T140208, end_date=20230518T140315
+[2023-05-18T14:03:15.866+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-05-18T14:03:16.077+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
